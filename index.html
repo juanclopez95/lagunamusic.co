@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,300;0,400;0,500;0,650;1,400&display=swap" rel="stylesheet" />
+  <title>Laguna — DJ &amp; Producer</title>
+  <meta name="description" content="Laguna is a Miami-based DJ and producer working across lo-fi house, indie electronic music and melancholic experiments." />
+  <meta name="theme-color" content="#07131d" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Laguna — DJ &amp; Producer" />
+  <meta property="og:description" content="Original releases, open-air sessions and mixtapes shaped for the long way home." />
+  <meta property="og:url" content="https://lagunamusic.co/" />
+  <meta property="og:image" content="https://lagunamusic.co/assets/site-image-07.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://lagunamusic.co/" />
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #e9eef4;
+      --panel: #dfe8f1;
+      --ink: #07151f;
+      --muted: #435563;
+      --line: rgba(7, 21, 31, .22);
+      --line-strong: rgba(7, 21, 31, .72);
+      --signal: #006bff;
+      --signal-soft: #b9d7ff;
+      --acid: #00a68a;
+      --image-bg: #c9d3dc;
+      --shadow: 0 18px 55px rgba(25, 55, 78, .13);
+      --radius-s: 7px;
+      --radius-m: 14px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #07131d;
+        --panel: #0d2232;
+        --ink: #e8f4ff;
+        --muted: #9db0bf;
+        --line: rgba(199, 224, 243, .18);
+        --line-strong: rgba(220, 240, 255, .7);
+        --signal: #65a8ff;
+        --signal-soft: #163d63;
+        --acid: #4ce2c6;
+        --image-bg: #122b3c;
+        --shadow: 0 22px 65px rgba(0, 0, 0, .32);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Azeret Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 14px;
+      line-height: 1.45;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+    button { font: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .site-grid {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(330px, 31vw);
+    }
+
+    .main-column {
+      min-width: 0;
+      padding: clamp(18px, 2.2vw, 34px);
+      padding-right: clamp(22px, 3vw, 50px);
+    }
+
+    .rail {
+      position: sticky;
+      top: 0;
+      align-self: start;
+      min-height: 100vh;
+      max-height: 100vh;
+      overflow: auto;
+      border-left: 1px solid var(--line-strong);
+      background: var(--panel);
+      scrollbar-width: thin;
+    }
+
+    .utility {
+      min-height: 48px;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: .08em;
+    }
+    .signal-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      margin-right: 7px;
+      border-radius: 50%;
+      background: var(--acid);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--acid) 16%, transparent);
+      vertical-align: -1px;
+    }
+
+    .rail-intro { padding: 22px 16px 18px; border-bottom: 1px solid var(--line-strong); }
+    .statement {
+      max-width: 25ch;
+      margin: 0 0 24px;
+      font-size: clamp(17px, 1.5vw, 22px);
+      line-height: 1.28;
+      font-weight: 500;
+    }
+    .marquee {
+      overflow: hidden;
+      border-top: 1px solid var(--line-strong);
+      border-bottom: 1px solid var(--line-strong);
+      margin-inline: -16px;
+      white-space: nowrap;
+    }
+    .marquee-track {
+      display: inline-flex;
+      gap: .28em;
+      min-width: max-content;
+      padding: 4px 0 7px;
+      font-size: clamp(54px, 7vw, 108px);
+      line-height: .9;
+      letter-spacing: -.075em;
+      font-weight: 650;
+      animation: ticker 18s linear infinite;
+    }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    .marquee-track .slash { color: var(--signal); font-weight: 300; }
+    @keyframes ticker { to { transform: translateX(-50%); } }
+
+    .rail-nav { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--line-strong); }
+    .rail-nav a {
+      padding: 14px 16px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: .05em;
+    }
+    .rail-nav a:nth-child(2n) { border-right: 0; }
+    .rail-nav a:nth-last-child(-n+2) { border-bottom: 0; }
+    .rail-nav a:hover { background: var(--signal); color: #fff; }
+
+    .rail-section { padding: 18px 16px; border-bottom: 1px solid var(--line-strong); }
+    .rail-label, .kicker {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 0 14px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      font-size: 10px;
+    }
+    .listen-grid { display: grid; gap: 8px; }
+    .listen-link {
+      display: grid;
+      grid-template-columns: 24px 1fr auto;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-s);
+      background: color-mix(in srgb, var(--bg) 42%, transparent);
+    }
+    .listen-link:hover { border-color: var(--signal); color: var(--signal); }
+    .listen-link .arrow { font-size: 18px; line-height: 1; }
+    .index-no { color: var(--muted); font-size: 10px; }
+
+    .video-card {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 12px;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-m);
+      background: color-mix(in srgb, var(--bg) 36%, transparent);
+    }
+    .video-card + .video-card { margin-top: 9px; }
+    .video-thumb {
+      aspect-ratio: 16 / 10;
+      border-radius: 7px;
+      background:
+        radial-gradient(circle at 72% 26%, var(--signal) 0 8%, transparent 9%),
+        linear-gradient(145deg, color-mix(in srgb, var(--signal) 75%, #001326), #001a2b 70%);
+      position: relative;
+      overflow: hidden;
+    }
+    .video-thumb::after {
+      content: "";
+      position: absolute;
+      inset: 58% 0 0;
+      background: linear-gradient(178deg, transparent, rgba(0,0,0,.55));
+    }
+    .video-copy strong { display: block; font-size: 12px; font-weight: 500; }
+    .video-copy span { color: var(--muted); font-size: 10px; text-transform: uppercase; }
+
+    .cta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 13px 15px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-size: 11px;
+    }
+    .cta:hover { background: var(--ink); color: var(--bg); }
+
+    .intro {
+      min-height: min(78vh, 820px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-bottom: clamp(54px, 9vw, 120px);
+    }
+    .booking-line {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px 24px;
+      border-top: 1px solid var(--line-strong);
+      border-bottom: 1px solid var(--line-strong);
+      padding: 11px 0;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      font-size: 10px;
+    }
+    .booking-links { display: flex; flex-wrap: wrap; gap: 10px 18px; }
+    .booking-line a { color: var(--signal); }
+    .booking-line a:hover { text-decoration: underline; }
+
+    .hero-copy { padding-top: clamp(70px, 12vw, 170px); }
+    .hero-copy h1 {
+      max-width: 16ch;
+      margin: 0;
+      font-size: clamp(39px, 6.7vw, 104px);
+      line-height: .95;
+      letter-spacing: -.07em;
+      font-weight: 500;
+    }
+    .hero-copy h1 em { color: var(--signal); font-style: normal; }
+    .hero-copy p {
+      max-width: 58ch;
+      margin: 34px 0 0 auto;
+      color: var(--muted);
+      font-size: clamp(13px, 1.1vw, 16px);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 20px;
+      padding: 24px 0 16px;
+      border-top: 1px solid var(--line-strong);
+      border-bottom: 1px solid var(--line-strong);
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(30px, 4.2vw, 64px);
+      line-height: .94;
+      letter-spacing: -.055em;
+      font-weight: 500;
+    }
+    .section-head span { color: var(--muted); font-size: 10px; text-transform: uppercase; }
+
+    .works-list { border-bottom: 1px solid var(--line-strong); }
+    .work {
+      display: grid;
+      grid-template-columns: minmax(100px, 19%) minmax(0, 1fr) 92px;
+      gap: clamp(14px, 2.4vw, 36px);
+      align-items: center;
+      min-height: 168px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .work:last-child { border-bottom: 0; }
+    .work-media {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      border: 5px solid var(--ink);
+      border-radius: var(--radius-m);
+      background: var(--image-bg);
+      cursor: zoom-in;
+    }
+    .work-media img { width: 100%; height: 100%; object-fit: cover; transition: filter .25s ease; }
+    .work:hover .work-media img { filter: saturate(1.18) contrast(1.04); }
+    .work-text { min-width: 0; }
+    .work-number { display: block; margin-bottom: 12px; color: var(--signal); font-size: 11px; }
+    .work-title {
+      display: block;
+      font-size: clamp(18px, 2.4vw, 34px);
+      line-height: 1.04;
+      letter-spacing: -.04em;
+      font-weight: 500;
+      overflow-wrap: anywhere;
+    }
+    .work-type { display: block; margin-top: 10px; color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; }
+    .work-year { align-self: start; padding-top: 2px; text-align: right; color: var(--muted); font-size: 10px; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: clamp(24px, 5vw, 80px);
+      padding: clamp(48px, 8vw, 110px) 0;
+    }
+    .about-lead {
+      margin: 0;
+      font-size: clamp(24px, 3.5vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -.05em;
+    }
+    .about-lead span { color: var(--signal); }
+    .about-copy { color: var(--muted); }
+    .about-copy p:first-child { margin-top: 0; }
+
+    .credits {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--line-strong);
+      border-bottom: 1px solid var(--line-strong);
+    }
+    .credits-block { padding: 20px 0; }
+    .credits-block:first-child { padding-right: 24px; border-right: 1px solid var(--line); }
+    .credits-block:last-child { padding-left: 24px; }
+    .credits h3 { margin: 0 0 20px; color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .08em; font-weight: 400; }
+    .name-cloud { display: flex; flex-wrap: wrap; gap: 7px; }
+    .name-cloud span { padding: 6px 9px; border: 1px solid var(--line); border-radius: 999px; font-size: 10px; }
+
+    footer { padding: 70px 0 30px; }
+    .footer-cta {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 24px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+    .footer-cta h2 { max-width: 12ch; margin: 0; font-size: clamp(34px, 5.4vw, 82px); line-height: .95; letter-spacing: -.06em; font-weight: 500; }
+    .footer-contact-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px 18px; }
+    .footer-cta a { color: var(--signal); font-size: 12px; text-transform: uppercase; }
+    .footer-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 26px; padding-top: 18px; color: var(--muted); font-size: 10px; text-transform: uppercase; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 14px; }
+    .footer-links a:hover { color: var(--signal); }
+
+    dialog {
+      width: min(86vw, 760px);
+      max-height: 90vh;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: white;
+    }
+    dialog::backdrop { background: rgba(0, 10, 20, .84); backdrop-filter: blur(7px); }
+    dialog img { width: 100%; max-height: 82vh; object-fit: contain; border-radius: var(--radius-m); }
+    .dialog-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255,255,255,.5);
+      border-radius: 50%;
+      background: rgba(0,0,0,.5);
+      color: white;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .site-grid { display: flex; flex-direction: column; }
+      .main-column { order: 1; padding: 16px; }
+      .rail {
+        order: 0;
+        position: relative;
+        min-height: 0;
+        max-height: none;
+        border-left: 0;
+        border-bottom: 1px solid var(--line-strong);
+      }
+      .rail-intro { padding-top: 16px; }
+      .rail-nav { display: flex; flex-wrap: wrap; }
+      .rail-nav a { flex: 0 0 25%; min-width: 0; text-align: center; border-bottom: 0; }
+      .rail-nav a:nth-child(2n) { border-right: 1px solid var(--line); }
+      .rail-nav a:last-child { border-right: 0; }
+      .rail .rail-section:nth-of-type(4) { display: none; }
+      .intro { min-height: 0; }
+      .hero-copy { padding: 48px 0 68px; }
+      .hero-copy p { margin-left: 0; }
+    }
+
+    @media (max-width: 620px) {
+      .utility { padding-inline: 12px; }
+      .rail-intro { padding-inline: 12px; }
+      .marquee { margin-inline: -12px; }
+      .marquee-track { font-size: 62px; }
+      .rail-nav { display: block; }
+      .rail-nav a { display: block; width: 100%; border-right: 0; border-bottom: 1px solid var(--line); text-align: left; }
+      .rail-nav a:last-child { border-bottom: 0; }
+      .hero-copy h1 { max-width: 12ch; }
+      .section-head { grid-template-columns: 1fr; }
+      .work { grid-template-columns: 92px minmax(0, 1fr); gap: 14px; min-height: 128px; }
+      .work-year { grid-column: 2; text-align: left; padding-top: 0; margin-top: -6px; }
+      .work-title { font-size: 19px; }
+      .work-media { border-width: 4px; border-radius: 10px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .credits { grid-template-columns: 1fr; }
+      .credits-block:first-child { padding-right: 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      .credits-block:last-child { padding-left: 0; }
+      .footer-cta { grid-template-columns: 1fr; }
+      .footer-contact-links { justify-content: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .marquee-track { animation: none; }
+      .work-media img { transition: none; }
+    }
+  
+    .masthead { padding: 0 0 16px; }
+    .masthead img { width: 100%; height: auto; border-radius: var(--radius-s); }
+  </style>
+</head>
+<body>
+  <div class="site-grid">
+    <main class="main-column">
+      <section class="intro" id="top">
+        <div class="booking-line">
+          <span>Bookings + collaborations</span>
+          <span class="booking-links"><a href="mailto:j@lagunamusic.co">j@lagunamusic.co</a><a href="https://www.instagram.com/lagunasounds" target="_blank" rel="noopener">@lagunasounds ↗</a></span>
+        </div>
+        <div class="hero-copy">
+          <p class="kicker"><span>Sound curator / producer</span><span>Miami ↔ everywhere</span></p>
+          <h1>Decorating time &amp; space with <em>sound.</em></h1>
+          <p>Lo-fi house, indie electronic and melancholic experiments — original releases, open-air sessions and mixtapes shaped for the long way home.</p>
+        </div>
+      </section>
+
+      <section id="works" aria-labelledby="works-title">
+        <div class="section-head">
+          <h2 id="works-title">Selected works</h2>
+          <span>Music / 2020—2026</span>
+        </div>
+        <div class="works-list">
+          <article class="work">
+            <button class="work-media" type="button" data-full="assets/site-image-01.jpg" aria-label="Enlarge artwork for Ojos Así">
+              <img src="assets/site-image-01.jpg" alt="Artwork for Ojos Así" />
+            </button>
+            <div class="work-text"><span class="work-number">001</span><span class="work-title">Ojos Así</span><span class="work-type">Rework</span></div>
+            <time class="work-year">2026</time>
+          </article>
+          <article class="work">
+            <button class="work-media" type="button" data-full="assets/site-image-02.jpg" aria-label="Enlarge artwork for El Mar">
+              <img src="assets/site-image-02.jpg" alt="Artwork for El Mar (parece roto)" />
+            </button>
+            <div class="work-text"><span class="work-number">002</span><a class="work-title" href="https://open.spotify.com/track/0ARduJZzHGefGVwvbmaWFe" target="_blank" rel="noopener">El Mar (parece roto) ↗</a><span class="work-type">Single with Sinego</span></div>
+            <time class="work-year">2025</time>
+          </article>
+          <article class="work">
+            <button class="work-media" type="button" data-full="assets/site-image-03.jpg" aria-label="Enlarge artwork for Lost Time">
+              <img src="assets/site-image-03.jpg" alt="Artwork for Lost Time" />
+            </button>
+            <div class="work-text"><span class="work-number">003</span><span class="work-title">Lost Time</span><span class="work-type">Single</span></div>
+            <time class="work-year">2021</time>
+          </article>
+          <article class="work">
+            <button class="work-media" type="button" data-full="assets/site-image-04.jpg" aria-label="Enlarge artwork for Lone Rider and Stroll">
+              <img src="assets/site-image-04.jpg" alt="Artwork for Lone Rider / Stroll" />
+            </button>
+            <div class="work-text"><span class="work-number">004</span><a class="work-title" href="https://open.spotify.com/album/527mFiINEOwf6NCIMzUPIk?si=MQyv1vTPSlm13qHJakyWzg" target="_blank" rel="noopener">Lone Rider / 산책 Stroll ↗</a><span class="work-type">Split single with Peachy!</span></div>
+            <time class="work-year">2020</time>
+          </article>
+          <article class="work">
+            <button class="work-media" type="button" data-full="assets/site-image-05.jpg" aria-label="Enlarge artwork for Chronicles">
+              <img src="assets/site-image-05.jpg" alt="Artwork for Chronicles" />
+            </button>
+            <div class="work-text"><span class="work-number">005</span><span class="work-title">Chronicles</span><span class="work-type">Release</span></div>
+            <time class="work-year">2020</time>
+          </article>
+          <article class="work">
+            <button class="work-media" type="button" data-full="assets/site-image-06.jpg" aria-label="Enlarge artwork for Away">
+              <img src="assets/site-image-06.jpg" alt="Artwork for Away" />
+            </button>
+            <div class="work-text"><span class="work-number">006</span><span class="work-title">Away</span><span class="work-type">Release</span></div>
+            <time class="work-year">2020</time>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-grid" id="about">
+        <p class="about-lead">Different tempos. One point of view. <span>Always in motion.</span></p>
+        <div class="about-copy">
+          <p>Laguna moves between warm, low-slung house and more reflective electronic forms. The through line is atmosphere: music that changes the room without crowding it.</p>
+          <p>Recent filmed sessions extend that instinct beyond the booth — long-form selections built around place, light and the pace of a night unfolding.</p>
+        </div>
+      </section>
+
+      <section class="credits" id="history" aria-label="Selected performance history">
+        <div class="credits-block">
+          <h3>Selected rooms</h3>
+          <div class="name-cloud">
+            <span>Jolene</span><span>Do Not Sit</span><span>The Shelbourne</span><span>Soho House</span><span>ZeyZey</span><span>Eagle Room</span><span>Elsewhere</span><span>Make Believe</span><span>Freehold</span><span>Astra</span><span>Le Rouge</span>
+          </div>
+        </div>
+        <div class="credits-block">
+          <h3>Shared lineups</h3>
+          <div class="name-cloud">
+            <span>Stryv</span><span>MoBlack</span><span>Luch</span><span>Darmon</span><span>klangkarrusell</span><span>Nico de Andrea</span><span>Peace Control</span><span>Fahlberg</span><span>Darius</span><span>Christian Löffler</span><span>Nicola Bernardini</span>
+          </div>
+        </div>
+      </section>
+
+      <footer id="contact">
+        <div class="footer-cta">
+          <h2>Let’s make the room move.</h2>
+          <div class="footer-contact-links"><a href="mailto:j@lagunamusic.co">j@lagunamusic.co</a><a href="https://www.instagram.com/lagunasounds" target="_blank" rel="noopener">Bookings / contact ↗</a></div>
+        </div>
+        <div class="footer-meta">
+          <span>Laguna © 2026</span>
+          <div class="footer-links">
+            <a href="https://www.youtube.com/@lagunasounds" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://soundcloud.com/lagunaloire" target="_blank" rel="noopener">SoundCloud</a>
+            <a href="https://www.instagram.com/lagunasounds" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <aside class="rail" aria-label="Laguna listening panel">
+      <div class="utility">
+        <span><i class="signal-dot"></i>Signal online</span>
+        <span id="clock" aria-label="Your local time">--:--:--</span>
+      </div>
+      <div class="rail-intro">
+        <div class="masthead"><img src="assets/site-image-07.png" alt="Laguna lockup mark"></div>
+        <p class="statement">Music for the precise moment day becomes night.</p>
+        <div class="marquee" aria-label="Laguna">
+          <div class="marquee-track" aria-hidden="true">
+            <span>LAGUNA</span><span class="slash">/</span><span>LAGUNA</span><span class="slash">/</span><span>LAGUNA</span><span class="slash">/</span><span>LAGUNA</span><span class="slash">/</span>
+          </div>
+        </div>
+      </div>
+      <nav class="rail-nav" aria-label="Site navigation">
+        <a href="#top">Home</a><a href="#works">Works</a><a href="#about">About</a><a href="#contact">Contact</a>
+      </nav>
+      <div class="rail-section">
+        <p class="rail-label"><span>Listen elsewhere</span><span>03 links</span></p>
+        <div class="listen-grid">
+          <a class="listen-link" href="https://www.youtube.com/@lagunasounds" target="_blank" rel="noopener"><span class="index-no">01</span><span>YouTube</span><span class="arrow">↗</span></a>
+          <a class="listen-link" href="https://soundcloud.com/lagunaloire" target="_blank" rel="noopener"><span class="index-no">02</span><span>SoundCloud</span><span class="arrow">↗</span></a>
+          <a class="listen-link" href="https://open.spotify.com/album/527mFiINEOwf6NCIMzUPIk?si=MQyv1vTPSlm13qHJakyWzg" target="_blank" rel="noopener"><span class="index-no">03</span><span>Spotify</span><span class="arrow">↗</span></a>
+        </div>
+      </div>
+      <div class="rail-section">
+        <p class="rail-label"><span>Filmed sessions</span><span>Full length</span></p>
+        <a class="video-card" href="https://www.youtube.com/watch?v=rrE7sQR20PQ" target="_blank" rel="noopener">
+          <span class="video-thumb" aria-hidden="true"></span>
+          <span class="video-copy"><strong>Ibiza Sessions III</strong><span>Watch on YouTube ↗</span></span>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/@lagunasounds" target="_blank" rel="noopener">
+          <span class="video-thumb" aria-hidden="true"></span>
+          <span class="video-copy"><strong>Ibiza Sessions II</strong><span>Watch on YouTube ↗</span></span>
+        </a>
+      </div>
+      <div class="rail-section">
+        <a class="cta" href="https://www.instagram.com/lagunasounds" target="_blank" rel="noopener"><span>Bookings / inquiries</span><span>↗</span></a>
+      </div>
+    </aside>
+  </div>
+
+  <dialog id="artwork-dialog" aria-label="Expanded release artwork">
+    <button class="dialog-close" type="button" aria-label="Close artwork">×</button>
+    <img src="assets/site-image-01.jpg" alt="Expanded release artwork" />
+  </dialog>
+
+  <script>
+    (function () {
+      var clock = document.getElementById('clock');
+      function tick() {
+        var now = new Date();
+        clock.textContent = new Intl.DateTimeFormat(undefined, {
+          hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
+        }).format(now);
+      }
+      tick();
+      setInterval(tick, 1000);
+
+      var dialog = document.getElementById('artwork-dialog');
+      var dialogImage = dialog.querySelector('img');
+      var closeButton = dialog.querySelector('.dialog-close');
+      document.querySelectorAll('.work-media').forEach(function (button) {
+        button.addEventListener('click', function () {
+          var image = button.querySelector('img');
+          dialogImage.src = button.getAttribute('data-full');
+          dialogImage.alt = image.alt;
+          dialog.showModal();
+        });
+      });
+      closeButton.addEventListener('click', function () { dialog.close(); });
+      dialog.addEventListener('click', function (event) {
+        if (event.target === dialog) dialog.close();
+      });
+    }());
+  </script>
+</body>
+</html>
