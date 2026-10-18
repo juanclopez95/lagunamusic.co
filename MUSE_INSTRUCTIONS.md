@@ -11,7 +11,9 @@ Muse does not publish directly, change DNS, merge pull requests, or hold adminis
 - Keep one centered vertical content stream. Never introduce a permanent side rail, split-screen layout, or competing feed.
 - Take inspiration from the editorial hierarchy of `dennisfree.world`: strong type, numbered projects, thin rules, concise metadata, direct links, and artist specificity.
 - Do not copy that site's exact layout, wording, typeface, or artwork.
-- Preserve Laguna's cool deep-ink / ice-blue palette.
+- Preserve the white, black, gray, and signal-red print palette.
+- Typography should follow the Dennis Free reference's monospaced editorial character. Use Laguna's licensed fallback until Monument Grotesk Mono is supplied; never copy or hotlink an unlicensed font file.
+- Filmed sessions may run silently as background texture. Keep them grayscale, high-contrast, visibly glitched, privacy-enhanced, and paired with a clear link to watch with sound.
 - The voice is direct, human, atmospheric, and slightly lo-fi—not corporate.
 - Avoid generic DJ language, inflated claims, unnecessary sections, and invented facts.
 - The website is an identity and booking funnel, not a blog, store, or social feed.
