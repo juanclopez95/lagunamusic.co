@@ -444,6 +444,75 @@
   
     .masthead { padding: 0 0 16px; }
     .masthead img { width: 100%; height: auto; border-radius: var(--radius-s); }
+
+    /* One editorial stream: header, story, listening, work, biography, contact. */
+    .site-grid {
+      display: flex;
+      flex-direction: column;
+      width: min(100%, 1540px);
+      margin: 0 auto;
+      border-inline: 1px solid var(--line);
+    }
+    .rail {
+      order: -1;
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      min-height: 0;
+      max-height: none;
+      overflow: hidden;
+      border-left: 0;
+      border-bottom: 1px solid var(--line-strong);
+    }
+    .rail-intro { padding: clamp(18px, 2.4vw, 36px); }
+    .masthead { width: min(100%, 720px); margin: 0 auto 20px; }
+    .statement { max-width: 48ch; margin: 0 auto 28px; text-align: center; }
+    .marquee { margin-inline: calc(clamp(18px, 2.4vw, 36px) * -1); }
+    .marquee-track { font-size: clamp(58px, 9vw, 138px); }
+    .rail-nav { grid-template-columns: repeat(4, 1fr); }
+    .rail-nav a { border-bottom: 0; text-align: center; }
+    .rail-nav a:nth-child(2n) { border-right: 1px solid var(--line); }
+    .rail-nav a:last-child { border-right: 0; }
+    .main-column {
+      width: 100%;
+      padding: clamp(18px, 3vw, 46px);
+    }
+    .intro { min-height: min(68vh, 720px); }
+    .discovery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--line-strong);
+      border-bottom: 1px solid var(--line-strong);
+      margin-bottom: clamp(56px, 8vw, 110px);
+    }
+    .discovery .rail-section { border-bottom: 0; padding: 22px 0; }
+    .discovery .rail-section:first-child { padding-right: clamp(18px, 3vw, 44px); border-right: 1px solid var(--line); }
+    .discovery .rail-section:last-child { padding-left: clamp(18px, 3vw, 44px); }
+
+    @media (max-width: 900px) {
+      .site-grid { display: flex; }
+      .main-column { order: 0; padding: 16px; }
+      .rail { order: -1; }
+      .rail-nav { display: grid; grid-template-columns: repeat(4, 1fr); }
+      .rail-nav a { width: auto; border-bottom: 0; }
+      .intro { min-height: 0; }
+      .discovery { grid-template-columns: 1fr; }
+      .discovery .rail-section:first-child { padding-right: 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      .discovery .rail-section:last-child { padding-left: 0; }
+    }
+
+    @media (max-width: 620px) {
+      .rail-intro { padding-inline: 12px; }
+      .marquee { margin-inline: -12px; }
+      .rail-nav { grid-template-columns: 1fr 1fr; }
+      .rail-nav a { text-align: left; border-bottom: 1px solid var(--line); }
+      .rail-nav a:nth-child(2) { border-right: 0; }
+      .rail-nav a:nth-last-child(-n+2) { border-bottom: 0; }
+      .work { grid-template-columns: 1fr; align-items: start; padding: 22px 0; }
+      .work-media { width: 100%; aspect-ratio: 16 / 10; }
+      .work-year { grid-column: 1; margin-top: 0; }
+    }
   </style>
 </head>
 <body>
@@ -458,6 +527,28 @@
           <p class="kicker"><span>Sound curator / producer</span><span>Miami ↔ everywhere</span></p>
           <h1>Decorating time &amp; space with <em>sound.</em></h1>
           <p>Lo-fi house, indie electronic and melancholic experiments — original releases, open-air sessions and mixtapes shaped for the long way home.</p>
+        </div>
+      </section>
+
+      <section class="discovery" aria-label="Listen to Laguna">
+        <div class="rail-section">
+          <p class="rail-label"><span>Listen elsewhere</span><span>03 links</span></p>
+          <div class="listen-grid">
+            <a class="listen-link" href="https://www.youtube.com/@lagunasounds" target="_blank" rel="noopener"><span class="index-no">01</span><span>YouTube</span><span class="arrow">↗</span></a>
+            <a class="listen-link" href="https://soundcloud.com/lagunaloire" target="_blank" rel="noopener"><span class="index-no">02</span><span>SoundCloud</span><span class="arrow">↗</span></a>
+            <a class="listen-link" href="https://open.spotify.com/album/527mFiINEOwf6NCIMzUPIk?si=MQyv1vTPSlm13qHJakyWzg" target="_blank" rel="noopener"><span class="index-no">03</span><span>Spotify</span><span class="arrow">↗</span></a>
+          </div>
+        </div>
+        <div class="rail-section">
+          <p class="rail-label"><span>Filmed sessions</span><span>Full length</span></p>
+          <a class="video-card" href="https://www.youtube.com/watch?v=rrE7sQR20PQ" target="_blank" rel="noopener">
+            <span class="video-thumb" aria-hidden="true"></span>
+            <span class="video-copy"><strong>Ibiza Sessions III</strong><span>Watch on YouTube ↗</span></span>
+          </a>
+          <a class="video-card" href="https://www.youtube.com/@lagunasounds" target="_blank" rel="noopener">
+            <span class="video-thumb" aria-hidden="true"></span>
+            <span class="video-copy"><strong>Ibiza Sessions II</strong><span>Watch on YouTube ↗</span></span>
+          </a>
         </div>
       </section>
 
@@ -568,28 +659,6 @@
       <nav class="rail-nav" aria-label="Site navigation">
         <a href="#top">Home</a><a href="#works">Works</a><a href="#about">About</a><a href="#contact">Contact</a>
       </nav>
-      <div class="rail-section">
-        <p class="rail-label"><span>Listen elsewhere</span><span>03 links</span></p>
-        <div class="listen-grid">
-          <a class="listen-link" href="https://www.youtube.com/@lagunasounds" target="_blank" rel="noopener"><span class="index-no">01</span><span>YouTube</span><span class="arrow">↗</span></a>
-          <a class="listen-link" href="https://soundcloud.com/lagunaloire" target="_blank" rel="noopener"><span class="index-no">02</span><span>SoundCloud</span><span class="arrow">↗</span></a>
-          <a class="listen-link" href="https://open.spotify.com/album/527mFiINEOwf6NCIMzUPIk?si=MQyv1vTPSlm13qHJakyWzg" target="_blank" rel="noopener"><span class="index-no">03</span><span>Spotify</span><span class="arrow">↗</span></a>
-        </div>
-      </div>
-      <div class="rail-section">
-        <p class="rail-label"><span>Filmed sessions</span><span>Full length</span></p>
-        <a class="video-card" href="https://www.youtube.com/watch?v=rrE7sQR20PQ" target="_blank" rel="noopener">
-          <span class="video-thumb" aria-hidden="true"></span>
-          <span class="video-copy"><strong>Ibiza Sessions III</strong><span>Watch on YouTube ↗</span></span>
-        </a>
-        <a class="video-card" href="https://www.youtube.com/@lagunasounds" target="_blank" rel="noopener">
-          <span class="video-thumb" aria-hidden="true"></span>
-          <span class="video-copy"><strong>Ibiza Sessions II</strong><span>Watch on YouTube ↗</span></span>
-        </a>
-      </div>
-      <div class="rail-section">
-        <a class="cta" href="https://www.instagram.com/lagunasounds" target="_blank" rel="noopener"><span>Bookings / inquiries</span><span>↗</span></a>
-      </div>
     </aside>
   </div>
 

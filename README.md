@@ -31,5 +31,6 @@ Open `http://localhost:4173`.
 - `assets/` — optimized release artwork and Laguna lockup
 - `content/WEBCOPY_lagunamusic-co_v3.txt` — approved copy reference
 - `MUSE_SITE_CHANGE_TEMPLATE.md` — phone-to-GitHub handoff format
+- `MUSE_INSTRUCTIONS.md` — Muse's website role, design guardrails, and publishing protocol
 - `LAUNCH_CHECKLIST.md` — production cutover plan
 
