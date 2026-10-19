@@ -603,6 +603,86 @@
         background-size: cover;
       }
     }
+
+    /* Reference-led editorial layout: deliberately quiet, linear and content-first. */
+    .site-grid { width: 100%; max-width: none; border: 0; }
+    .rail { background: #fff; border-bottom: 1px solid var(--line-strong); }
+    .rail-intro { display: none; }
+    .utility {
+      min-height: 0;
+      padding: 18px 26px 14px;
+      border-bottom: 1px solid var(--line);
+      font-size: clamp(12px, 1.15vw, 18px);
+      letter-spacing: .02em;
+    }
+    .utility .signal-dot { display: none; }
+    .rail-nav { display: flex; padding: 0 26px; border-bottom: 0; }
+    .rail-nav a {
+      padding: 12px 22px 12px 0;
+      border: 0 !important;
+      text-align: left;
+      color: var(--muted);
+    }
+    .rail-nav a:hover { background: transparent; color: var(--ink); }
+    .main-column { padding: 0 26px 44px; }
+    .intro { min-height: 0; padding: 0; }
+    .booking-line {
+      padding: 14px 0;
+      border-top: 0;
+      font-size: clamp(11px, 1vw, 16px);
+    }
+    .hero-copy { display: none; }
+    .discovery { display: none; }
+    .section-head { padding: 20px 0 18px; border-top: 0; }
+    .section-head h2 {
+      font-size: clamp(34px, 3.8vw, 58px);
+      letter-spacing: -.045em;
+      text-transform: uppercase;
+    }
+    .works-list { border-bottom-color: var(--line); }
+    .work {
+      grid-template-columns: minmax(300px, 42%) minmax(0, 1fr) 92px;
+      gap: 22px;
+      align-items: start;
+      min-height: 0;
+      padding: 18px 0;
+    }
+    .work-media {
+      width: 100%;
+      border: 0;
+      border-radius: 0;
+      cursor: zoom-in;
+    }
+    .session-work-media { aspect-ratio: 16 / 10; cursor: default; }
+    .session-work-media .session-card { min-height: 100%; height: 100%; border-color: var(--line); }
+    .session-work-media .session-link { min-height: 100%; }
+    .work-number { margin-bottom: 7px; color: var(--ink); font-size: 15px; }
+    .work-title { font-size: clamp(18px, 1.65vw, 27px); letter-spacing: -.025em; text-transform: uppercase; }
+    .work-description {
+      max-width: 54ch;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(13px, 1.18vw, 18px);
+      line-height: 1.35;
+    }
+    .work-type { font-size: 12px; }
+    .work-year { font-size: 14px; font-weight: 500; }
+    .about-grid, .credits, footer { max-width: 1160px; }
+
+    @media (max-width: 760px) {
+      .utility { display: block; padding: 13px 16px 10px; }
+      .utility span { display: block; }
+      .utility span + span { margin-top: 3px; color: var(--muted); }
+      .rail-nav { padding: 0 16px; overflow-x: auto; }
+      .rail-nav a { flex: 0 0 auto; padding-right: 18px; }
+      .main-column { padding-inline: 16px; }
+      .booking-line { display: block; }
+      .booking-links { margin-top: 7px; }
+      .work { grid-template-columns: 1fr; gap: 13px; }
+      .work-media { aspect-ratio: 16 / 10; }
+      .work-year { grid-column: 1; }
+      .work-description { margin-top: 14px; }
+    }
   </style>
 </head>
 <body>
@@ -620,28 +700,6 @@
         </div>
       </section>
 
-      <section class="discovery" id="sessions" aria-label="Listen to Laguna">
-        <div class="rail-section">
-          <p class="rail-label"><span>Listen elsewhere</span><span>03 links</span></p>
-          <div class="listen-grid">
-            <a class="listen-link" href="https://www.youtube.com/@lagunasounds" target="_blank" rel="noopener"><span class="index-no">01</span><span>YouTube</span><span class="arrow">↗</span></a>
-            <a class="listen-link" href="https://soundcloud.com/lagunaloire" target="_blank" rel="noopener"><span class="index-no">02</span><span>SoundCloud</span><span class="arrow">↗</span></a>
-            <a class="listen-link" href="https://open.spotify.com/album/527mFiINEOwf6NCIMzUPIk?si=MQyv1vTPSlm13qHJakyWzg" target="_blank" rel="noopener"><span class="index-no">03</span><span>Spotify</span><span class="arrow">↗</span></a>
-          </div>
-        </div>
-        <div class="rail-section">
-          <p class="rail-label"><span>Filmed sessions</span><span>Full length</span></p>
-          <article class="session-card" style="background-image:url('https://i.ytimg.com/vi/rrE7sQR20PQ/maxresdefault.jpg')">
-            <iframe class="session-video" src="https://www.youtube-nocookie.com/embed/rrE7sQR20PQ?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=rrE7sQR20PQ&amp;modestbranding=1&amp;playsinline=1" title="Muted background excerpt from Balearic Sound II" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe>
-            <a class="session-link" href="https://www.youtube.com/watch?v=rrE7sQR20PQ" target="_blank" rel="noopener"><strong>Balearic Sound II</strong><span>Watch with sound ↗</span></a>
-          </article>
-          <article class="session-card" style="background-image:url('https://i.ytimg.com/vi/7fOVhE3xkLc/maxresdefault.jpg')">
-            <iframe class="session-video" src="https://www.youtube-nocookie.com/embed/7fOVhE3xkLc?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=7fOVhE3xkLc&amp;modestbranding=1&amp;playsinline=1" title="Muted background excerpt from Balearic Sound I" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe>
-            <a class="session-link" href="https://www.youtube.com/watch?v=7fOVhE3xkLc" target="_blank" rel="noopener"><strong>Balearic Sound I</strong><span>Watch with sound ↗</span></a>
-          </article>
-        </div>
-      </section>
-
       <section id="works" aria-labelledby="works-title">
         <div class="section-head">
           <h2 id="works-title">Selected works</h2>
@@ -649,45 +707,65 @@
         </div>
         <div class="works-list">
           <article class="work">
+            <div class="work-media session-work-media">
+              <article class="session-card" style="background-image:url('https://i.ytimg.com/vi/rrE7sQR20PQ/maxresdefault.jpg')">
+                <iframe class="session-video" src="https://www.youtube-nocookie.com/embed/rrE7sQR20PQ?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=rrE7sQR20PQ&amp;modestbranding=1&amp;playsinline=1" title="Muted background excerpt from Balearic Sound II" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe>
+                <a class="session-link" href="https://www.youtube.com/watch?v=rrE7sQR20PQ" target="_blank" rel="noopener"><span></span><span>Watch with sound ↗</span></a>
+              </article>
+            </div>
+            <div class="work-text"><span class="work-number">001 —</span><a class="work-title" href="https://www.youtube.com/watch?v=rrE7sQR20PQ" target="_blank" rel="noopener">Balearic Sound II ↗</a><span class="work-type">Filmed DJ session</span><p class="work-description">A long-form Laguna session built around warm movement, open air and the slow transition into night.</p></div>
+            <time class="work-year">2026</time>
+          </article>
+          <article class="work">
+            <div class="work-media session-work-media">
+              <article class="session-card" style="background-image:url('https://i.ytimg.com/vi/7fOVhE3xkLc/maxresdefault.jpg')">
+                <iframe class="session-video" src="https://www.youtube-nocookie.com/embed/7fOVhE3xkLc?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=7fOVhE3xkLc&amp;modestbranding=1&amp;playsinline=1" title="Muted background excerpt from Balearic Sound I" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe>
+                <a class="session-link" href="https://www.youtube.com/watch?v=7fOVhE3xkLc" target="_blank" rel="noopener"><span></span><span>Watch with sound ↗</span></a>
+              </article>
+            </div>
+            <div class="work-text"><span class="work-number">002 —</span><a class="work-title" href="https://www.youtube.com/watch?v=7fOVhE3xkLc" target="_blank" rel="noopener">Balearic Sound I ↗</a><span class="work-type">Filmed DJ session</span><p class="work-description">The first entry in Laguna’s filmed Balearic series: patient selections, textured rhythm and a strong sense of place.</p></div>
+            <time class="work-year">2026</time>
+          </article>
+          <article class="work">
             <button class="work-media" type="button" data-full="assets/site-image-01.jpg" aria-label="Enlarge artwork for Ojos Así">
               <img src="assets/site-image-01.jpg" alt="Artwork for Ojos Así" />
             </button>
-            <div class="work-text"><span class="work-number">001</span><span class="work-title">Ojos Así</span><span class="work-type">Rework</span></div>
+            <div class="work-text"><span class="work-number">003 —</span><span class="work-title">Ojos Así</span><span class="work-type">Rework</span></div>
             <time class="work-year">2026</time>
           </article>
           <article class="work">
             <button class="work-media" type="button" data-full="assets/site-image-02.jpg" aria-label="Enlarge artwork for El Mar">
               <img src="assets/site-image-02.jpg" alt="Artwork for El Mar (parece roto)" />
             </button>
-            <div class="work-text"><span class="work-number">002</span><a class="work-title" href="https://open.spotify.com/track/0ARduJZzHGefGVwvbmaWFe" target="_blank" rel="noopener">El Mar (parece roto) ↗</a><span class="work-type">Single with Sinego</span></div>
+            <div class="work-text"><span class="work-number">004 —</span><a class="work-title" href="https://open.spotify.com/track/0ARduJZzHGefGVwvbmaWFe" target="_blank" rel="noopener">El Mar (parece roto) ↗</a><span class="work-type">Single with Sinego</span></div>
             <time class="work-year">2025</time>
           </article>
           <article class="work">
             <button class="work-media" type="button" data-full="assets/site-image-03.jpg" aria-label="Enlarge artwork for Lost Time">
               <img src="assets/site-image-03.jpg" alt="Artwork for Lost Time" />
             </button>
-            <div class="work-text"><span class="work-number">003</span><span class="work-title">Lost Time</span><span class="work-type">Single</span></div>
+            <div class="work-text"><span class="work-number">005 —</span><span class="work-title">Lost Time</span><span class="work-type">Single</span></div>
             <time class="work-year">2021</time>
           </article>
           <article class="work">
             <button class="work-media" type="button" data-full="assets/site-image-04.jpg" aria-label="Enlarge artwork for Lone Rider and Stroll">
               <img src="assets/site-image-04.jpg" alt="Artwork for Lone Rider / Stroll" />
             </button>
-            <div class="work-text"><span class="work-number">004</span><a class="work-title" href="https://open.spotify.com/album/527mFiINEOwf6NCIMzUPIk?si=MQyv1vTPSlm13qHJakyWzg" target="_blank" rel="noopener">Lone Rider / 산책 Stroll ↗</a><span class="work-type">Split single with Peachy!</span></div>
+            <div class="work-text"><span class="work-number">006 —</span><a class="work-title" href="https://open.spotify.com/album/527mFiINEOwf6NCIMzUPIk?si=MQyv1vTPSlm13qHJakyWzg" target="_blank" rel="noopener">Lone Rider / 산책 Stroll ↗</a><span class="work-type">Split single with Peachy!</span></div>
             <time class="work-year">2020</time>
           </article>
           <article class="work">
             <button class="work-media" type="button" data-full="assets/site-image-05.jpg" aria-label="Enlarge artwork for Chronicles">
               <img src="assets/site-image-05.jpg" alt="Artwork for Chronicles" />
             </button>
-            <div class="work-text"><span class="work-number">005</span><span class="work-title">Chronicles</span><span class="work-type">Release</span></div>
+            <div class="work-text"><span class="work-number">007 —</span><span class="work-title">Chronicles</span><span class="work-type">Release</span></div>
             <time class="work-year">2020</time>
           </article>
           <article class="work">
             <button class="work-media" type="button" data-full="assets/site-image-06.jpg" aria-label="Enlarge artwork for Away">
               <img src="assets/site-image-06.jpg" alt="Artwork for Away" />
             </button>
-            <div class="work-text"><span class="work-number">006</span><span class="work-title">Away</span><span class="work-type">Release</span></div>
+            <div class="work-text"><span class="work-number">008 —</span><span class="work-title">Away</span><span class="work-type">Release</span></div>
             <time class="work-year">2020</time>
           </article>
         </div>
@@ -734,8 +812,8 @@
 
     <aside class="rail" aria-label="Laguna listening panel">
       <div class="utility">
-        <span><i class="signal-dot"></i>Signal online</span>
-        <span id="clock" aria-label="Your local time">--:--:--</span>
+        <span>LAGUNA — DJ / PRODUCER — MIAMI</span>
+        <span>LO-FI HOUSE / INDIE ELECTRONIC / MELANCHOLIC EXPERIMENTS</span>
       </div>
       <div class="rail-intro">
         <div class="masthead"><img src="assets/site-image-07.png" alt="Laguna lockup mark"></div>
@@ -759,20 +837,10 @@
 
   <script>
     (function () {
-      var clock = document.getElementById('clock');
-      function tick() {
-        var now = new Date();
-        clock.textContent = new Intl.DateTimeFormat(undefined, {
-          hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
-        }).format(now);
-      }
-      tick();
-      setInterval(tick, 1000);
-
       var dialog = document.getElementById('artwork-dialog');
       var dialogImage = dialog.querySelector('img');
       var closeButton = dialog.querySelector('.dialog-close');
-      document.querySelectorAll('.work-media').forEach(function (button) {
+      document.querySelectorAll('button.work-media').forEach(function (button) {
         button.addEventListener('click', function () {
           var image = button.querySelector('img');
           dialogImage.src = button.getAttribute('data-full');

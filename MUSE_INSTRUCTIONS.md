@@ -10,6 +10,8 @@ Muse does not publish directly, change DNS, merge pull requests, or hold adminis
 
 - Keep one centered vertical content stream. Never introduce a permanent side rail, split-screen layout, or competing feed.
 - Take inspiration from the editorial hierarchy of `dennisfree.world`: strong type, numbered projects, thin rules, concise metadata, direct links, and artist specificity.
+- Keep the identity and booking header compact. Do not add an oversized logo hero, ticker, dashboard, card grid, or ornamental landing screen before the work.
+- Each selected work is one editorial row: media on the left and title, metadata, date, and concise context on the right; stack vertically on mobile.
 - Do not copy that site's exact layout, wording, typeface, or artwork.
 - Preserve the white, black, gray, and signal-red print palette.
 - Typography should follow the Dennis Free reference's monospaced editorial character. Use Laguna's licensed fallback until Monument Grotesk Mono is supplied; never copy or hotlink an unlicensed font file.
@@ -22,8 +24,8 @@ Muse does not publish directly, change DNS, merge pull requests, or hold adminis
 
 1. Laguna identity
 2. Booking/contact
-3. Listening links and filmed sessions
-4. Selected works
+3. Selected works, including filmed sessions
+4. Listening links where contextually useful
 5. Short biography
 6. Selected rooms and lineups
 7. Final booking call to action
