@@ -523,8 +523,8 @@
       --muted: #8c8c8c;
       --line: rgba(23, 23, 23, .18);
       --line-strong: rgba(23, 23, 23, .72);
-      --signal: #ff2a20;
-      --signal-soft: #ffd5d2;
+      --signal: #171717;
+      --signal-soft: #ededed;
       --acid: #171717;
       --image-bg: #ededed;
       --shadow: none;
@@ -555,9 +555,9 @@
       border: 0;
       transform: translate(-50%, -50%);
       pointer-events: none;
-      filter: grayscale(1) contrast(1.9) brightness(1.28);
+      filter: grayscale(1) contrast(1.7) brightness(1.06);
       mix-blend-mode: multiply;
-      opacity: .58;
+      opacity: .72;
     }
     .session-card::before {
       content: "";
@@ -566,7 +566,7 @@
       inset: 0;
       background:
         repeating-linear-gradient(0deg, rgba(255,255,255,.04) 0 2px, rgba(0,0,0,.08) 3px 4px),
-        linear-gradient(100deg, transparent 0 48%, rgba(255,42,32,.16) 49% 50%, transparent 51% 100%);
+        linear-gradient(100deg, transparent 0 48%, rgba(23,23,23,.12) 49% 50%, transparent 51% 100%);
       mix-blend-mode: multiply;
       pointer-events: none;
     }
@@ -591,7 +591,7 @@
     .session-link strong { font-size: clamp(16px, 1.5vw, 22px); font-weight: 500; }
     .session-link span { font-size: 10px; letter-spacing: .06em; }
     .session-card:hover .session-video {
-      filter: grayscale(1) contrast(2.25) brightness(1.4) hue-rotate(325deg);
+      filter: grayscale(1) contrast(2.1) brightness(1.14);
       transform: translate(calc(-50% + 3px), calc(-50% - 2px)) scale(1.015);
     }
     .session-card:hover::before { transform: translateX(-3px); }
@@ -683,6 +683,61 @@
       .work-year { grid-column: 1; }
       .work-description { margin-top: 14px; }
     }
+
+    /* Minimal booking-first information architecture. */
+    .main-column { display: flex; flex-direction: column; }
+    .intro { order: 1; }
+    .about-grid { order: 2; }
+    #works { order: 3; }
+    .credits { order: 4; }
+    footer { order: 5; }
+    .utility {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: baseline;
+      gap: 18px;
+    }
+    .utility-brand { font-size: 1.15em; font-weight: 650; }
+    .utility-position { color: var(--muted); font-size: .78em; }
+    .utility-location { color: var(--muted); font-size: .78em; text-align: right; }
+    .rail-nav { align-items: center; }
+    .rail-nav .platform-first { margin-left: auto; }
+    .rail-nav .platform-link {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .booking-line a,
+    .footer-cta a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .about-grid {
+      grid-template-columns: minmax(0, 1.15fr) minmax(240px, .85fr);
+      padding: clamp(34px, 5vw, 72px) 0;
+      border-bottom: 1px solid var(--line-strong);
+    }
+    .about-lead { max-width: 18ch; font-size: clamp(28px, 4vw, 58px); }
+    .about-lead span { color: var(--ink); }
+    .about-copy { align-self: end; font-size: clamp(13px, 1.15vw, 17px); }
+    .name-cloud { display: block; line-height: 1.9; }
+    .name-cloud span { padding: 0; border: 0; border-radius: 0; font-size: 12px; }
+    .name-cloud span:not(:last-child)::after { content: " / "; color: var(--muted); }
+    .footer-cta { display: none; }
+    footer { padding-top: 28px; }
+    .footer-meta { border-top: 1px solid var(--line); }
+    .footer-links { display: none; }
+
+    @media (max-width: 760px) {
+      .utility { display: grid; grid-template-columns: 1fr auto; }
+      .utility-position { grid-column: 1 / -1; grid-row: 2; }
+      .utility-location { grid-column: 2; grid-row: 1; margin-top: 0 !important; }
+      .rail-nav .platform-first { margin-left: 0; }
+      .rail-nav a { padding-right: 16px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-copy { max-width: 40ch; }
+    }
   </style>
 </head>
 <body>
@@ -690,7 +745,7 @@
     <main class="main-column">
       <section class="intro" id="top">
         <div class="booking-line">
-          <span>Bookings + collaborations</span>
+          <span>Reach me</span>
           <span class="booking-links"><a href="mailto:j@lagunamusic.co">j@lagunamusic.co</a><a href="https://www.instagram.com/lagunasounds" target="_blank" rel="noopener">@lagunasounds ↗</a></span>
         </div>
         <div class="hero-copy">
@@ -709,7 +764,7 @@
           <article class="work">
             <div class="work-media session-work-media">
               <article class="session-card" style="background-image:url('https://i.ytimg.com/vi/rrE7sQR20PQ/maxresdefault.jpg')">
-                <iframe class="session-video" src="https://www.youtube-nocookie.com/embed/rrE7sQR20PQ?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=rrE7sQR20PQ&amp;modestbranding=1&amp;playsinline=1" title="Muted background excerpt from Balearic Sound II" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe>
+                <iframe class="session-video" src="https://www.youtube-nocookie.com/embed/rrE7sQR20PQ?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=rrE7sQR20PQ&amp;modestbranding=1&amp;playsinline=1" title="Muted background excerpt from Balearic Sound II" loading="eager" allow="autoplay; encrypted-media" tabindex="-1"></iframe>
                 <a class="session-link" href="https://www.youtube.com/watch?v=rrE7sQR20PQ" target="_blank" rel="noopener"><span></span><span>Watch with sound ↗</span></a>
               </article>
             </div>
@@ -719,7 +774,7 @@
           <article class="work">
             <div class="work-media session-work-media">
               <article class="session-card" style="background-image:url('https://i.ytimg.com/vi/7fOVhE3xkLc/maxresdefault.jpg')">
-                <iframe class="session-video" src="https://www.youtube-nocookie.com/embed/7fOVhE3xkLc?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=7fOVhE3xkLc&amp;modestbranding=1&amp;playsinline=1" title="Muted background excerpt from Balearic Sound I" loading="lazy" allow="autoplay; encrypted-media" tabindex="-1"></iframe>
+                <iframe class="session-video" src="https://www.youtube-nocookie.com/embed/7fOVhE3xkLc?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=7fOVhE3xkLc&amp;modestbranding=1&amp;playsinline=1" title="Muted background excerpt from Balearic Sound I" loading="eager" allow="autoplay; encrypted-media" tabindex="-1"></iframe>
                 <a class="session-link" href="https://www.youtube.com/watch?v=7fOVhE3xkLc" target="_blank" rel="noopener"><span></span><span>Watch with sound ↗</span></a>
               </article>
             </div>
@@ -772,10 +827,9 @@
       </section>
 
       <section class="about-grid" id="about">
-        <p class="about-lead">Different tempos. One point of view. <span>Always in motion.</span></p>
+        <p class="about-lead">Eternal mirage.<br><span>Decorating time.</span></p>
         <div class="about-copy">
-          <p>Laguna moves between warm, low-slung house and more reflective electronic forms. The through line is atmosphere: music that changes the room without crowding it.</p>
-          <p>Recent filmed sessions extend that instinct beyond the booth — long-form selections built around place, light and the pace of a night unfolding.</p>
+          <p>Bringing eternity into the present through sound.</p>
         </div>
       </section>
 
@@ -795,25 +849,17 @@
       </section>
 
       <footer id="contact">
-        <div class="footer-cta">
-          <h2>Let’s make the room move.</h2>
-          <div class="footer-contact-links"><a href="mailto:j@lagunamusic.co">j@lagunamusic.co</a><a href="https://www.instagram.com/lagunasounds" target="_blank" rel="noopener">Bookings / contact ↗</a></div>
-        </div>
         <div class="footer-meta">
           <span>Laguna © 2026</span>
-          <div class="footer-links">
-            <a href="https://www.youtube.com/@lagunasounds" target="_blank" rel="noopener">YouTube</a>
-            <a href="https://soundcloud.com/lagunaloire" target="_blank" rel="noopener">SoundCloud</a>
-            <a href="https://www.instagram.com/lagunasounds" target="_blank" rel="noopener">Instagram</a>
-          </div>
         </div>
       </footer>
     </main>
 
     <aside class="rail" aria-label="Laguna listening panel">
       <div class="utility">
-        <span>LAGUNA — DJ / PRODUCER — MIAMI</span>
-        <span>LO-FI HOUSE / INDIE ELECTRONIC / MELANCHOLIC EXPERIMENTS</span>
+        <span class="utility-brand">LAGUNA</span>
+        <span class="utility-position">STORYTELLING THROUGH SOUND</span>
+        <span class="utility-location">MIAMI 🌎</span>
       </div>
       <div class="rail-intro">
         <div class="masthead"><img src="assets/site-image-07.png" alt="Laguna lockup mark"></div>
@@ -825,7 +871,10 @@
         </div>
       </div>
       <nav class="rail-nav" aria-label="Site navigation">
-        <a href="#top">Home</a><a href="#works">Works</a><a href="#about">About</a><a href="#contact">Contact</a>
+        <a href="#top">Home</a><a href="#about">About</a><a href="#works">Works</a><a href="#top">Contact</a>
+        <a class="platform-link platform-first" href="https://www.youtube.com/@lagunasounds" target="_blank" rel="noopener">YouTube ↗</a>
+        <a class="platform-link" href="https://soundcloud.com/lagunaloire" target="_blank" rel="noopener">SoundCloud ↗</a>
+        <a class="platform-link" href="https://www.instagram.com/lagunasounds" target="_blank" rel="noopener">Instagram ↗</a>
       </nav>
     </aside>
   </div>

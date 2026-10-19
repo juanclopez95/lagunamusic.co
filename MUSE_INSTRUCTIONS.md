@@ -13,7 +13,7 @@ Muse does not publish directly, change DNS, merge pull requests, or hold adminis
 - Keep the identity and booking header compact. Do not add an oversized logo hero, ticker, dashboard, card grid, or ornamental landing screen before the work.
 - Each selected work is one editorial row: media on the left and title, metadata, date, and concise context on the right; stack vertically on mobile.
 - Do not copy that site's exact layout, wording, typeface, or artwork.
-- Preserve the white, black, gray, and signal-red print palette.
+- Preserve the strictly white, black, and gray print palette. Do not introduce an accent color.
 - Typography should follow the Dennis Free reference's monospaced editorial character. Use Laguna's licensed fallback until Monument Grotesk Mono is supplied; never copy or hotlink an unlicensed font file.
 - Filmed sessions may run silently as background texture. Keep them grayscale, high-contrast, visibly glitched, privacy-enhanced, and paired with a clear link to watch with sound.
 - The voice is direct, human, atmospheric, and slightly lo-fi—not corporate.
@@ -24,11 +24,11 @@ Muse does not publish directly, change DNS, merge pull requests, or hold adminis
 
 1. Laguna identity
 2. Booking/contact
-3. Selected works, including filmed sessions
-4. Listening links where contextually useful
-5. Short biography
+3. Minimal artistic statement / About
+4. Selected works, including filmed sessions
+5. Listening links where contextually useful
 6. Selected rooms and lineups
-7. Final booking call to action
+7. Quiet copyright footer; keep contact and platform links near the top
 
 ## Request protocol
 
