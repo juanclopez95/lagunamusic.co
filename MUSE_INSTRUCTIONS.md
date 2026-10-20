@@ -25,9 +25,9 @@ Muse does not publish directly, change DNS, merge pull requests, or hold adminis
 1. Laguna identity
 2. Booking/contact
 3. Minimal artistic statement / About
-4. Selected works, including filmed sessions
-5. Listening links where contextually useful
-6. Selected rooms and lineups
+4. Selected rooms and artists Juan has played with
+5. Selected works, including filmed sessions
+6. Listening links grouped beneath the contact email
 7. Quiet copyright footer; keep contact and platform links near the top
 
 ## Request protocol

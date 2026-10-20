@@ -688,8 +688,8 @@
     .main-column { display: flex; flex-direction: column; }
     .intro { order: 1; }
     .about-grid { order: 2; }
-    #works { order: 3; }
-    .credits { order: 4; }
+    .credits { order: 3; }
+    #works { order: 4; }
     footer { order: 5; }
     .utility {
       display: grid;
@@ -701,12 +701,8 @@
     .utility-position { color: var(--muted); font-size: .78em; }
     .utility-location { color: var(--muted); font-size: .78em; text-align: right; }
     .rail-nav { align-items: center; }
-    .rail-nav .platform-first { margin-left: auto; }
-    .rail-nav .platform-link {
-      color: var(--ink);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
+    .booking-links { display: grid; justify-items: end; gap: 6px; }
+    .contact-row, .platform-row { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px 18px; }
     .booking-line a,
     .footer-cta a {
       color: var(--ink);
@@ -733,8 +729,9 @@
       .utility { display: grid; grid-template-columns: 1fr auto; }
       .utility-position { grid-column: 1 / -1; grid-row: 2; }
       .utility-location { grid-column: 2; grid-row: 1; margin-top: 0 !important; }
-      .rail-nav .platform-first { margin-left: 0; }
       .rail-nav a { padding-right: 16px; }
+      .booking-links { justify-items: start; }
+      .contact-row, .platform-row { justify-content: flex-start; }
       .about-grid { grid-template-columns: 1fr; }
       .about-copy { max-width: 40ch; }
     }
@@ -746,7 +743,10 @@
       <section class="intro" id="top">
         <div class="booking-line">
           <span>Reach me</span>
-          <span class="booking-links"><a href="mailto:j@lagunamusic.co">j@lagunamusic.co</a><a href="https://www.instagram.com/lagunasounds" target="_blank" rel="noopener">@lagunasounds ↗</a></span>
+          <span class="booking-links">
+            <span class="contact-row"><a href="mailto:j@lagunamusic.co">j@lagunamusic.co</a></span>
+            <span class="platform-row"><a href="https://www.youtube.com/@lagunasounds" target="_blank" rel="noopener">YouTube ↗</a><a href="https://soundcloud.com/lagunaloire" target="_blank" rel="noopener">SoundCloud ↗</a><a href="https://www.instagram.com/lagunasounds" target="_blank" rel="noopener">Instagram ↗</a></span>
+          </span>
         </div>
         <div class="hero-copy">
           <p class="kicker"><span>Sound curator / producer</span><span>Miami ↔ everywhere</span></p>
@@ -841,7 +841,7 @@
           </div>
         </div>
         <div class="credits-block">
-          <h3>Shared lineups</h3>
+          <h3>Artists I’ve played with</h3>
           <div class="name-cloud">
             <span>Stryv</span><span>MoBlack</span><span>Luch</span><span>Darmon</span><span>klangkarrusell</span><span>Nico de Andrea</span><span>Peace Control</span><span>Fahlberg</span><span>Darius</span><span>Christian Löffler</span><span>Nicola Bernardini</span>
           </div>
@@ -872,9 +872,6 @@
       </div>
       <nav class="rail-nav" aria-label="Site navigation">
         <a href="#top">Home</a><a href="#about">About</a><a href="#works">Works</a><a href="#top">Contact</a>
-        <a class="platform-link platform-first" href="https://www.youtube.com/@lagunasounds" target="_blank" rel="noopener">YouTube ↗</a>
-        <a class="platform-link" href="https://soundcloud.com/lagunaloire" target="_blank" rel="noopener">SoundCloud ↗</a>
-        <a class="platform-link" href="https://www.instagram.com/lagunasounds" target="_blank" rel="noopener">Instagram ↗</a>
       </nav>
     </aside>
   </div>
