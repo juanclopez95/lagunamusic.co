@@ -15,6 +15,8 @@ Muse does not publish directly, change DNS, merge pull requests, or hold adminis
 - Do not copy that site's exact layout, wording, typeface, or artwork.
 - Preserve the strictly white, black, and gray print palette. Do not introduce an accent color.
 - Typography should follow the Dennis Free reference's monospaced editorial character. Use Laguna's licensed fallback until Monument Grotesk Mono is supplied; never copy or hotlink an unlicensed font file.
+- Use the black all-caps Laguna wordmark in `assets/laguna-wordmark.png` at the top left; do not substitute plain text or the serif sunset lockup.
+- Keep the compact type hierarchy: small navigation and labels, restrained section headings, and body copy at a consistent reading size. Selected Works must stay within the same narrow measure as About and credentials.
 - Filmed sessions may run silently as background texture. Keep them grayscale, high-contrast, visibly glitched, privacy-enhanced, and paired with a clear link to watch with sound.
 - The voice is direct, human, atmospheric, and slightly lo-fi—not corporate.
 - Avoid generic DJ language, inflated claims, unnecessary sections, and invented facts.

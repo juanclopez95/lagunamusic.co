@@ -737,6 +737,70 @@
       .about-grid { grid-template-columns: 1fr; }
       .about-copy { max-width: 40ch; }
     }
+
+    /* Final compact type system and softer analog-video treatment. */
+    body { font-size: 13px; }
+    .utility, .booking-line, .rail-nav a { font-size: 11px; }
+    .utility-brand {
+      display: inline-flex;
+      width: 128px;
+      line-height: 0;
+    }
+    .utility-brand img { width: 100%; height: auto; }
+    .utility-location { font-size: 10px; }
+    .intro, .about-grid, .credits, #works, footer { width: 100%; max-width: 1040px; }
+    .about-grid { padding: 32px 0; }
+    .about-copy { font-size: 14px; line-height: 1.5; }
+    .about-copy .poem { margin-top: 16px; color: var(--ink); }
+    .section-head { padding: 17px 0 14px; }
+    .section-head h2 { font-size: clamp(27px, 2.7vw, 38px); letter-spacing: -.035em; }
+    .work {
+      grid-template-columns: minmax(270px, 38%) minmax(0, 1fr) 62px;
+      gap: 18px;
+      padding: 14px 0;
+    }
+    .work-title { font-size: clamp(15px, 1.3vw, 20px); }
+    .work-number, .work-year { font-size: 11px; }
+    .work-type { font-size: 10px; }
+    .work-description { margin-top: 16px; font-size: clamp(12px, 1vw, 14px); }
+    .session-card, .session-link { min-height: 180px; }
+    .session-video {
+      width: 186%;
+      height: 186%;
+      opacity: .7;
+      filter: grayscale(1) contrast(1.9) brightness(1.1);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 8%, #000 72%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, #000 8%, #000 72%, transparent 100%);
+    }
+    .session-card::before {
+      background:
+        linear-gradient(to bottom, transparent 0 17%, rgba(255,255,255,.76) 17% 19%, transparent 19% 43%, rgba(255,255,255,.5) 43% 46%, transparent 46% 78%, rgba(0,0,0,.08) 78% 79%, transparent 79%),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.06) 0 2px, rgba(0,0,0,.1) 3px 4px),
+        linear-gradient(100deg, transparent 0 47%, rgba(23,23,23,.13) 48% 49%, transparent 50% 100%);
+      animation: glitch-wash 5.2s steps(1, end) infinite;
+    }
+    .session-card::after {
+      background:
+        linear-gradient(90deg, #fff 0, transparent 9%, transparent 91%, #fff 100%),
+        linear-gradient(180deg, rgba(255,255,255,.25), transparent 48%, rgba(255,255,255,.97));
+    }
+    @keyframes glitch-wash {
+      0%, 88%, 100% { transform: translate(0, 0); opacity: .8; }
+      89% { transform: translate(-7px, 2px); opacity: 1; }
+      91% { transform: translate(5px, -1px); opacity: .65; }
+      93% { transform: translate(-2px, 0); opacity: .95; }
+    }
+
+    @media (max-width: 760px) {
+      .utility-brand { width: 110px; }
+      .about-copy { max-width: 38ch; }
+      .work { grid-template-columns: 1fr; }
+      .section-head h2 { font-size: 28px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .session-card::before { animation: none; }
+    }
   </style>
 </head>
 <body>
@@ -830,8 +894,8 @@
 
       <section class="about-grid" id="about">
         <div class="about-copy">
-          <p>Hi, I’m Juan. I’m a music producer and DJ, slowly relearning everything I thought I knew about music.</p>
-          <p>I keep returning to time—and to how sound can tell a complete story in compact form, without reducing its substance.</p>
+          <p>Hi, I’m Juan—a music producer and DJ, relearning what sound can hold.</p>
+          <p class="poem">A song is a small piece of time.<br>A place. A memory. A whole story—<br>compressed, never reduced.</p>
         </div>
       </section>
 
@@ -859,7 +923,7 @@
 
     <aside class="rail" aria-label="Laguna listening panel">
       <div class="utility">
-        <span class="utility-brand">LAGUNA</span>
+        <a class="utility-brand" href="#top" aria-label="Laguna home"><img src="assets/laguna-wordmark.png" alt="Laguna"></a>
         <span class="utility-location">MIAMI 🌎</span>
       </div>
       <div class="rail-intro">
