@@ -287,6 +287,29 @@
     .section-head span { color: var(--muted); font-size: 10px; text-transform: uppercase; }
 
     .works-list { border-bottom: 1px solid var(--line-strong); }
+    .work-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line-strong);
+    }
+    .work-filter {
+      padding: 0;
+      border: 0;
+      border-bottom: 1px solid transparent;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 11px;
+      line-height: 1.4;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      cursor: pointer;
+    }
+    .work-filter:hover,
+    .work-filter[aria-pressed="true"] { color: var(--ink); border-bottom-color: currentColor; }
+    .work[hidden] { display: none; }
     .work {
       display: grid;
       grid-template-columns: minmax(100px, 19%) minmax(0, 1fr) 92px;
@@ -826,8 +849,14 @@
           <h2 id="works-title">Selected works</h2>
           <span>Music / 2020—2026</span>
         </div>
+        <div class="work-filters" aria-label="Filter selected works">
+          <button class="work-filter" type="button" data-filter="all" aria-pressed="true">Everything</button>
+          <button class="work-filter" type="button" data-filter="mixes" aria-pressed="false">Mixes</button>
+          <button class="work-filter" type="button" data-filter="singles" aria-pressed="false">Singles</button>
+          <button class="work-filter" type="button" data-filter="albums" aria-pressed="false">Albums</button>
+        </div>
         <div class="works-list">
-          <article class="work">
+          <article class="work" data-category="mixes">
             <div class="work-media session-work-media">
               <article class="session-card" style="background-image:url('https://i.ytimg.com/vi/rrE7sQR20PQ/maxresdefault.jpg')">
                 <iframe class="session-video" src="https://www.youtube-nocookie.com/embed/rrE7sQR20PQ?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=rrE7sQR20PQ&amp;modestbranding=1&amp;playsinline=1" title="Muted background excerpt from Balearic Sound II" loading="eager" allow="autoplay; encrypted-media" tabindex="-1"></iframe>
@@ -837,7 +866,7 @@
             <div class="work-text"><span class="work-number">001 —</span><a class="work-title" href="https://www.youtube.com/watch?v=rrE7sQR20PQ" target="_blank" rel="noopener">Balearic Sound II ↗</a><span class="work-type">Filmed DJ session</span><p class="work-description">A long-form Laguna session built around warm movement, open air and the slow transition into night.</p></div>
             <time class="work-year">2026</time>
           </article>
-          <article class="work">
+          <article class="work" data-category="mixes">
             <div class="work-media session-work-media">
               <article class="session-card" style="background-image:url('https://i.ytimg.com/vi/7fOVhE3xkLc/maxresdefault.jpg')">
                 <iframe class="session-video" src="https://www.youtube-nocookie.com/embed/7fOVhE3xkLc?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=7fOVhE3xkLc&amp;modestbranding=1&amp;playsinline=1" title="Muted background excerpt from Balearic Sound I" loading="eager" allow="autoplay; encrypted-media" tabindex="-1"></iframe>
@@ -847,55 +876,90 @@
             <div class="work-text"><span class="work-number">002 —</span><a class="work-title" href="https://www.youtube.com/watch?v=7fOVhE3xkLc" target="_blank" rel="noopener">Balearic Sound I ↗</a><span class="work-type">Filmed DJ session</span><p class="work-description">The first entry in Laguna’s filmed Balearic series: patient selections, textured rhythm and a strong sense of place.</p></div>
             <time class="work-year">2026</time>
           </article>
-          <article class="work">
-            <button class="work-media" type="button" data-full="assets/site-image-01.jpg" aria-label="Enlarge artwork for Ojos Así">
-              <img src="assets/site-image-01.jpg" alt="Artwork for Ojos Así" />
+          <article class="work" data-category="singles">
+            <button class="work-media" type="button" data-full="assets/ojos-asi.jpg" aria-label="Enlarge artwork for Ojos Así">
+              <img src="assets/ojos-asi.jpg" alt="Artwork for Ojos Así" />
             </button>
-            <div class="work-text"><span class="work-number">003 —</span><span class="work-title">Ojos Así</span><span class="work-type">Rework</span></div>
-            <time class="work-year">2026</time>
+            <div class="work-text"><span class="work-number">003 —</span><a class="work-title" href="https://soundcloud.com/lagunaloire/ojos-asi-laguna-sinego-rework" target="_blank" rel="noopener">Ojos Así ↗</a><span class="work-type">Rework with Sinego</span></div>
+            <time class="work-year">2024</time>
           </article>
-          <article class="work">
-            <button class="work-media" type="button" data-full="assets/site-image-02.jpg" aria-label="Enlarge artwork for El Mar">
-              <img src="assets/site-image-02.jpg" alt="Artwork for El Mar (parece roto)" />
+          <article class="work" data-category="singles">
+            <button class="work-media" type="button" data-full="assets/el-mar.png" aria-label="Enlarge artwork for El Mar">
+              <img src="assets/el-mar.png" alt="Artwork for El Mar (parece roto)" />
             </button>
             <div class="work-text"><span class="work-number">004 —</span><a class="work-title" href="https://open.spotify.com/track/0ARduJZzHGefGVwvbmaWFe" target="_blank" rel="noopener">El Mar (parece roto) ↗</a><span class="work-type">Single with Sinego</span></div>
             <time class="work-year">2025</time>
           </article>
-          <article class="work">
+          <article class="work" data-category="singles">
             <button class="work-media" type="button" data-full="assets/site-image-03.jpg" aria-label="Enlarge artwork for Lost Time">
               <img src="assets/site-image-03.jpg" alt="Artwork for Lost Time" />
             </button>
             <div class="work-text"><span class="work-number">005 —</span><span class="work-title">Lost Time</span><span class="work-type">Single</span></div>
             <time class="work-year">2021</time>
           </article>
-          <article class="work">
+          <article class="work" data-category="singles">
             <button class="work-media" type="button" data-full="assets/site-image-04.jpg" aria-label="Enlarge artwork for Lone Rider and Stroll">
               <img src="assets/site-image-04.jpg" alt="Artwork for Lone Rider / Stroll" />
             </button>
             <div class="work-text"><span class="work-number">006 —</span><a class="work-title" href="https://open.spotify.com/album/527mFiINEOwf6NCIMzUPIk?si=MQyv1vTPSlm13qHJakyWzg" target="_blank" rel="noopener">Lone Rider / 산책 Stroll ↗</a><span class="work-type">Split single with Peachy!</span></div>
             <time class="work-year">2020</time>
           </article>
-          <article class="work">
+          <article class="work" data-category="albums">
             <button class="work-media" type="button" data-full="assets/site-image-05.jpg" aria-label="Enlarge artwork for Chronicles">
               <img src="assets/site-image-05.jpg" alt="Artwork for Chronicles" />
             </button>
             <div class="work-text"><span class="work-number">007 —</span><span class="work-title">Chronicles</span><span class="work-type">Release</span></div>
             <time class="work-year">2020</time>
           </article>
-          <article class="work">
+          <article class="work" data-category="singles">
             <button class="work-media" type="button" data-full="assets/site-image-06.jpg" aria-label="Enlarge artwork for Away">
               <img src="assets/site-image-06.jpg" alt="Artwork for Away" />
             </button>
             <div class="work-text"><span class="work-number">008 —</span><span class="work-title">Away</span><span class="work-type">Release</span></div>
             <time class="work-year">2020</time>
           </article>
+          <article class="work" data-category="mixes">
+            <button class="work-media" type="button" data-full="assets/mix-005.jpg" aria-label="Enlarge artwork for Mixtape 005 at Lion's Den">
+              <img src="assets/mix-005.jpg" alt="Artwork for Mixtape 005 at Lion's Den" />
+            </button>
+            <div class="work-text"><span class="work-number">009 —</span><a class="work-title" href="https://soundcloud.com/lagunaloire/laguna-lions-den-june-6th" target="_blank" rel="noopener">Mixtape 005 / Lion’s Den ↗</a><span class="work-type">Live mix / SoundCloud</span></div>
+            <time class="work-year">2026</time>
+          </article>
+          <article class="work" data-category="mixes">
+            <button class="work-media" type="button" data-full="assets/mix-004.png" aria-label="Enlarge artwork for Mixtape 004 at Soho Pool House">
+              <img src="assets/mix-004.png" alt="Artwork for Mixtape 004 at Soho Pool House" />
+            </button>
+            <div class="work-text"><span class="work-number">010 —</span><a class="work-title" href="https://soundcloud.com/lagunaloire/mixtape-003" target="_blank" rel="noopener">Mixtape 004 / Soho Pool House ↗</a><span class="work-type">Live mix / SoundCloud</span></div>
+            <time class="work-year">2025</time>
+          </article>
+          <article class="work" data-category="mixes">
+            <button class="work-media" type="button" data-full="assets/mix-003.png" aria-label="Enlarge artwork for Mixtape 003 at The Shelbourne">
+              <img src="assets/mix-003.png" alt="Artwork for Mixtape 003 at The Shelbourne" />
+            </button>
+            <div class="work-text"><span class="work-number">011 —</span><a class="work-title" href="https://soundcloud.com/lagunaloire/mixtape-003-the-shelbourne-miami" target="_blank" rel="noopener">Mixtape 003 / The Shelbourne ↗</a><span class="work-type">Live mix / SoundCloud</span></div>
+            <time class="work-year">2025</time>
+          </article>
+          <article class="work" data-category="mixes">
+            <button class="work-media" type="button" data-full="assets/mix-002.jpg" aria-label="Enlarge artwork for Mixtape 002">
+              <img src="assets/mix-002.jpg" alt="Artwork for Mixtape 002" />
+            </button>
+            <div class="work-text"><span class="work-number">012 —</span><a class="work-title" href="https://soundcloud.com/lagunaloire/mixtape-002" target="_blank" rel="noopener">Mixtape 002 ↗</a><span class="work-type">Mix / SoundCloud</span></div>
+            <time class="work-year">2024</time>
+          </article>
+          <article class="work" data-category="mixes">
+            <button class="work-media" type="button" data-full="assets/mix-001.jpg" aria-label="Enlarge artwork for Mixtape 001">
+              <img src="assets/mix-001.jpg" alt="Artwork for Mixtape 001" />
+            </button>
+            <div class="work-text"><span class="work-number">013 —</span><a class="work-title" href="https://soundcloud.com/lagunaloire/mixtape-01" target="_blank" rel="noopener">Mixtape 001 ↗</a><span class="work-type">Mix / SoundCloud</span></div>
+            <time class="work-year">2023</time>
+          </article>
         </div>
       </section>
 
       <section class="about-grid" id="about">
         <div class="about-copy">
-          <p>Hi, I’m Juan—a music producer and DJ, relearning what sound can hold.</p>
-          <p class="poem">A song is a small piece of time.<br>A place. A memory. A whole story—<br>compressed, never reduced.</p>
+          <p>Hi, I’m Juan. I’m a music producer, and perform live as a DJ.</p>
+          <p>Slowly relearning what music is, and how to evoke memories, places, and stories into sound.</p>
         </div>
       </section>
 
@@ -951,6 +1015,19 @@
       var dialog = document.getElementById('artwork-dialog');
       var dialogImage = dialog.querySelector('img');
       var closeButton = dialog.querySelector('.dialog-close');
+      var filterButtons = document.querySelectorAll('.work-filter');
+      var works = document.querySelectorAll('.work[data-category]');
+      filterButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          var filter = button.getAttribute('data-filter');
+          filterButtons.forEach(function (item) {
+            item.setAttribute('aria-pressed', String(item === button));
+          });
+          works.forEach(function (work) {
+            work.hidden = filter !== 'all' && work.getAttribute('data-category') !== filter;
+          });
+        });
+      });
       document.querySelectorAll('button.work-media').forEach(function (button) {
         button.addEventListener('click', function () {
           var image = button.querySelector('img');
